@@ -1,0 +1,173 @@
+/* Базовые сбросы */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+
+/* Стабильный фон: фиксированный слой, не зависит от высоты страницы */
+body {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: url("images/spb.jpg") center / cover no-repeat;
+    z-index: -1;         /* фон ниже всего контента */
+}
+
+/* Далее — ваши прежние стили страницы (без фоновых свойств у body) */
+header {
+    font-family: "Comic Sans MS", monospace;
+    color: #fafafa;
+    font-size: 20px;
+    text-align: center;
+    margin: 16px 12px 12px;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+header .link {
+    color: #fafafa;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.3s;
+    font-weight: bold;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+header .link:hover { color: #ff87c4; text-decoration: underline; }
+
+/* Двухколоночный контейнер */
+.workbench {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    max-width: 1160px;
+    width: 100%;
+    justify-content: center;
+    padding: 6px 10px 0;
+}
+
+/* Карточка графика */
+.graph-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 16px 20px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.10);
+    backdrop-filter: blur(2px);
+}
+.graph-title {
+    font-family: "Comic Sans MS", monospace;
+    color: #fafafa;
+    font-size: 28px;
+    margin: 0 0 6px 0;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000;
+    align-self: flex-start;
+}
+#graph {
+    width: 480px;
+    height: 320px;
+    max-width: 100%;
+    background: transparent;
+    display: block;
+}
+
+/* Карточка формы */
+#pk {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 24px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.10);
+    backdrop-filter: blur(2px);
+    max-width: 560px;
+    width: min(560px, 92vw);
+}
+
+/* Группы полей */
+.input-group {
+    width: min(420px, 90vw);
+    margin: 8px auto 0;
+    text-align: center;
+}
+.input-group > label:first-child {
+    display: block;
+    font-family: "Comic Sans MS", monospace;
+    color: #fafafa;
+    font-size: 34px;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000;
+    margin-bottom: 6px;
+}
+
+/* Сетка X */
+#x-radios {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    justify-content: center;
+    align-items: center;
+    gap: 14px 28px;
+    margin-top: 8px;
+}
+#x-radios label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: "Comic Sans MS", monospace;
+    color: #fafafa;
+    font-size: 26px;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000;
+    user-select: none;
+}
+#x-radios input[type="radio"] { transform: scale(1.25); }
+
+/* Поля Y и R */
+#y, #r {
+    width: 220px;
+    padding: 6px 10px;
+    font-size: 18px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+/* Кнопки */
+.buttons { display: flex; gap: 10px; margin-top: 4px; }
+button {
+    padding: 10px 20px;
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+button:hover { background-color: darkblue; color: #fff; }
+
+/* Таблица */
+table {
+    border-collapse: collapse;
+    width: 80%;
+    margin: 24px auto 24px;
+    border: 2px solid #ffffff;
+}
+th, td {
+    border: 2px solid #ffffff;
+    text-align: center;
+    padding: 10px;
+    font-family: 'Bangers', cursive;
+    color: #ffdd57;
+    background-color: rgba(0,0,0,0.6);
+    text-shadow: 2px 2px 4px #000;
+    font-size: 18px;
+}
+th {
+    background-color: rgba(255, 87, 196, 0.8);
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+}

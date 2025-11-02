@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Демин Артём Витальевич">
+    <meta name="description" content="Веб-программирование: Лабораторная работа №2.">
+    <meta name="keywords" content="ITMO, ИТМО, ПИиКТ, ВТ, Лабораторная работа, Веб-программирование"/>
+
+    <link href="styles.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <title>Лабораторная работа №2 | Веб-программирование</title>
+</head>
+
+<body>
+<header class="header">
+    <h1 class="title">Веб-программирование</h1>
+    <h2 class="subtitle">Лабораторная работа №2, Вариант 12086</h2>
+    <div id="credit">
+        <a class="author">
+            Демин Артём Витальевич, Р3212
+        </a>
+    </div>
+</header>
+
+<main>
+    <section class="form-section">
+        <h3>Введите данные для проверки</h3>
+        <hr>
+        <form id="inputForm">
+            <div class="input-group">
+                <label>Выберите X:</label>
+                <div class="button-group">
+                    <input name="X-button" type="button" value="-4">
+                    <input name="X-button" type="button" value="-3">
+                    <input name="X-button" type="button" value="-2">
+                    <input name="X-button" type="button" value="-1">
+                    <input name="X-button" type="button" value="0">
+                    <input name="X-button" type="button" value="1">
+                    <input name="X-button" type="button" value="2">
+                    <input name="X-button" type="button" value="3">
+                    <input name="X-button" type="button" value="4">
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>Введите Y:</label>
+                <input required name="Y-input" type="text" placeholder="-3..5" maxlength="6" pattern="^-?[0-3](\.\d+)?$|^[0-5](\.\d+)?$" required>
+            </div>
+
+            <div class="input-group">
+                <label>Выберите R:</label>
+                <div class="radio-group">
+                    <label><input name="R-radio-group" type="radio" value="1">1</label>
+                    <label><input name="R-radio-group" type="radio" value="2">2</label>
+                    <label><input name="R-radio-group" type="radio" value="3">3</label>
+                    <label><input name="R-radio-group" type="radio" value="4">4</label>
+                    <label><input name="R-radio-group" type="radio" value="5">5</label>
+                </div>
+            </div>
+
+            <button type="submit" id="checkButton">Проверить</button>
+        </form>
+    </section>
+
+    <section class="canvas-section">
+        <svg xmlns="http://www.w3.org/2000/svg" id="svg">
+            <!-- Осевые линии -->
+            <line x1="0" y1="150" x2="300" y2="150" stroke="#FFFFFF"></line>
+            <line x1="150" y1="0" x2="150" y2="300" stroke="#FFFFFF"></line>
+            <!-- Метки и подписи -->
+            <!-- ... (оставьте существующие элементы или обновите их стили) -->
+            <!-- Фигура области -->
+            <!-- ... (оставьте существующие элементы или обновите их стили) -->
+        </svg>
+    </section>
+
+    <section class="results-section">
+        <% PointDao dao = (PointDao) request.getSession().getAttribute("bean");
+        if (dao == null) {
+        %>
+        <h4>
+            <span id="notifications" class="outputStub notification">Нет результатов</span>
+        </h4>
+        <table id="outputTable">
+            <tr>
+                <th>X</th>
+                <th>Y</th>
+                <th>R</th>
+                <th>Результат</th>
+            </tr>
+        </table>
+        <% } else { %>
+        <h4>
+            <span class="notification"></span>
+        </h4>
+        <table id="outputTable1">
+            <tr>
+                <th>X</th>
+                <th>Y</th>
+                <th>R</th>
+                <th>Результат</th>
+            </tr>
+            <% for (Point point : dao.getPoints()) { %>
+            <tr>
+                <td><%= point.getX() %></td>
+                <td><%= point.getY() %></td>
+                <td><%= point.getR() %></td>
+                <td>
+                    <%= point.isInArea() ? "<span class=\"success\">Попал</span>"
+                    : "<span class=\"fail\">Промах</span>" %>
+                </td>
+            </tr>
+            <% } %>
+        </table>
+        <% } %>
+    </section>
+</main>
+
+<footer>
+    <figure>
+        <a href="https://se.ifmo.ru">
+            <img src="images/logo.png"
+                 alt="Факультет Программной инженерии и компьютерной техники Университета ИТМО"
+                 title="Перейти на сайт ПИиКТ ИТМО">
+        </a>
+        <figcaption>2023</figcaption>
+    </figure>
+</footer>
+
+<script
+        src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+        crossorigin="anonymous"></script>
+<script src="script.js"></script>
+</body>
+
+</html>

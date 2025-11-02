@@ -1,0 +1,73 @@
+:root { --bg:#0a1b2a; --bg2:#1e2e45; --accent:#1e90ff; --text:#f0f4f9; }
+html, body { height: 100%; }
+body {
+    margin:0; padding:0; background: linear-gradient(145deg, var(--bg) 0%, var(--bg2) 100%);
+    color: var(--text); font: 16px/1.45 "Segoe UI", Roboto, sans-serif;
+}
+
+#page-header h1 {
+    margin:16px 12px 12px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight:600; font-size: 24px; color:#e5ecff; letter-spacing: .3px;
+}
+#page-header h1::before { content:"ЛР1 — "; opacity:.75; }
+
+
+.container {
+    display:flex; gap:24px; justify-content:center; align-items:flex-start; flex-wrap:wrap;
+    padding: 8px 12px 0;
+}
+.graph-panel, .form-panel { width: min(520px, 95vw); }
+.panel-title { margin: 0 0 8px 0; font-size:22px; color:#cde2ff; }
+
+#graph {
+    width:480px; height:320px; max-width:100%;
+    background:#f9fafb; border:2px solid #506d9b; border-radius:10px;
+}
+
+#pk {
+    background: rgba(255,255,255,.07);
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:12px;
+    padding:12px; box-shadow: 0 0 8px rgba(0,0,0,.25);
+}
+.field { display:flex; gap:12px; align-items:center; margin-bottom:10px; }
+.label { min-width:40px; font-size:18px; }
+
+.x-grid, .r-grid { display:flex; flex-wrap:wrap; gap:10px 14px; }
+.x-grid label, .r-grid label { user-select:none; }
+input[type="checkbox"] { transform: scale(1.15); accent-color:#5cb8ff; }
+
+#y {
+    width:220px; padding:6px 10px; font-size:17px; text-align:center;
+    border:1px solid #7b8ba5; border-radius:6px; background:#f5f8fc; color:#0a1b2a;
+    transition: border-color .2s, box-shadow .2s;
+}
+#y:focus { outline:none; border-color:#5cb8ff; box-shadow:0 0 4px #5cb8ff; }
+
+#y[data-invalid="true"] { border-color:#ff4d4d; box-shadow:0 0 4px #ff4d4d; }
+
+.buttons { display:flex; gap:12px; }
+button {
+    padding:10px 18px; background:var(--accent); color:#fff; border:0; border-radius:8px;
+    cursor:pointer; font-size:16px; font-weight:600; transition: background .2s, transform .1s;
+}
+button:hover { background:#0c6cd0; }
+button:active { transform: scale(0.97); }
+
+.msg { min-height:28px; }
+#message { color:#ffbbbb; font-weight:700; }
+#message::before { content:""; }
+
+.results-panel { display:flex; justify-content:center; padding:18px 0 24px; }
+table.results {
+    border-collapse: collapse; width: min(900px, 92vw);
+    border:2px solid #5cb8ff; border-radius:6px; overflow:hidden; background: rgba(30,46,69,.85);
+}
+.results th, .results td {
+    border:1px solid #5cb8ff; text-align:center; padding:10px; color: var(--text); font-family:"Segoe UI", sans-serif;
+}
+.results th { background:#1e90ff; color:#fff; font-weight:700; }
+
+input[placeholder] { background-clip: padding-box; }
+

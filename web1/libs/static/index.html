@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <title>Area Check — ЛР1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header id="page-header">
+    <h1>
+        <span class="fio">Капленко Алина Денисовна.</span>
+        <span class="group">P3224</span>
+        <span class="variant">Вариант 474301</span>
+    </h1>
+</header>
+
+<main class="container">
+    <section class="graph-panel">
+        <h2 class="panel-title">График области</h2>
+        <canvas id="graph" width="480" height="320"></canvas>
+    </section>
+
+    <section class="form-panel">
+        <h2 class="panel-title">Ввод данных</h2>
+
+        <form id="pk" method="POST" novalidate>
+            <div class="field">
+                <div class="label">X:</div>
+                <div class="x-grid">
+                    <label><input type="checkbox" name="x" value="-2"> -2</label>
+                    <label><input type="checkbox" name="x" value="-1.5"> -1.5</label>
+                    <label><input type="checkbox" name="x" value="-1"> -1</label>
+                    <label><input type="checkbox" name="x" value="-0.5"> -0.5</label>
+                    <label><input type="checkbox" name="x" value="0"> 0</label>
+                    <label><input type="checkbox" name="x" value="0.5"> 0.5</label>
+                    <label><input type="checkbox" name="x" value="1"> 1</label>
+                    <label><input type="checkbox" name="x" value="1.5"> 1.5</label>
+                    <label><input type="checkbox" name="x" value="2"> 2</label>
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label" for="y">Y:</label>
+                <input id="y" name="y" type="text" placeholder="Введите Y (-3 ... 3)" inputmode="decimal" />
+            </div>
+
+            <div class="field">
+                <div class="label">R:</div>
+                <div id="r-boxes" class="r-grid">
+                    <label><input type="checkbox" name="r" value="2" checked> 2</label>
+                    <label><input type="checkbox" name="r" value="3"> 3</label>
+                    <label><input type="checkbox" name="r" value="4"> 4</label>
+                    <label><input type="checkbox" name="r" value="5"> 5</label>
+                </div>
+            </div>
+
+            <div class="buttons">
+                <button id="checkBtn" type="submit">Проверить</button>
+                <button id="clearTableBtn" type="button">Очистить таблицу</button>
+            </div>
+
+            <div class="msg"><output id="message" for="y r"> </output></div>
+        </form>
+    </section>
+</main>
+
+<section class="results-panel">
+    <table id="table" class="results">
+        <thead>
+        <tr>
+            <th>X</th>
+            <th>Y</th>
+            <th>R</th>
+            <th>Результат</th>
+            <th>Текущее время</th>
+            <th>Время работы</th>
+        </tr>
+        </thead>
+        <tbody id="results"></tbody>
+    </table>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
