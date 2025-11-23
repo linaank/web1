@@ -34,8 +34,8 @@ body {
 .field { display:flex; gap:12px; align-items:center; margin-bottom:10px; }
 .label { min-width:40px; font-size:18px; }
 
-.x-grid, .r-grid { display:flex; flex-wrap:wrap; gap:10px 14px; }
-.x-grid label, .r-grid label { user-select:none; }
+.x-grid { display:flex; flex-wrap:wrap; gap:10px 14px; }
+.x-grid label { user-select:none; }
 input[type="checkbox"] { transform: scale(1.15); accent-color:#5cb8ff; }
 
 #y {
@@ -43,9 +43,18 @@ input[type="checkbox"] { transform: scale(1.15); accent-color:#5cb8ff; }
     border:1px solid #7b8ba5; border-radius:6px; background:#f5f8fc; color:#0a1b2a;
     transition: border-color .2s, box-shadow .2s;
 }
+#r {
+    width:220px; padding:6px 10px; font-size:17px; text-align:center;
+    border:1px solid #7b8ba5; border-radius:6px; background:#f5f8fc; color:#0a1b2a;
+    transition: border-color .2s, box-shadow .2s;
+    }
+
 #y:focus { outline:none; border-color:#5cb8ff; box-shadow:0 0 4px #5cb8ff; }
+#r:focus { outline:none; border-color:#5cb8ff; box-shadow:0 0 4px #5cb8ff; }
 
 #y[data-invalid="true"] { border-color:#ff4d4d; box-shadow:0 0 4px #ff4d4d; }
+#r[data-invalid="true"] { border-color:#ff4d4d; box-shadow:0 0 4px #ff4d4d; }
+
 
 .buttons { display:flex; gap:12px; }
 button {
@@ -70,4 +79,5 @@ table.results {
 .results th { background:#1e90ff; color:#fff; font-weight:700; }
 
 input[placeholder] { background-clip: padding-box; }
+
 
