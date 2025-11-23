@@ -170,12 +170,13 @@ public class Main {
     }
 
     private static String validateInput(double x, double y, double r) {
-        if (y < -3 || y > 3) return "Значение Y должно быть в диапазоне от -3 до 3.";
-        double[] allowedR = {2.0, 3.0, 4.0, 5.0};
-        boolean ok = false; for (double v : allowedR) if (Math.abs(r - v) < 1e-9) { ok = true; break; }
-        if (!ok) return "Значение R должно быть одним из: 2, 3, 4, 5.";
-        return null;
-    }
+    if (y < -3 || y > 3) 
+        return "Значение Y должно быть в диапазоне от -3 до 3.";
+    if (r < 2 || r > 5) 
+        return "Значение R должно быть в диапазоне от 2 до 5.";
+    
+    return null;
+}
 
     private static void sendHtmlResponse(int statusCode, String statusText, String htmlContent) {
         String extra = EXTRA_HEADERS.get(); if (extra == null) extra = "";
